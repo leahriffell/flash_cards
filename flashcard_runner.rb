@@ -3,13 +3,12 @@ require './lib/turn'
 require './lib/deck'
 require './lib/round'
 require './lib/game'
+require './lib/card_generator'
 
-card_1 = Card.new('What does 職場 mean?', 'workplace', :vocab)
-card_2 = Card.new('What does 観光 mean?', 'tourism', :vocab)
-card_3 = Card.new('What is the kanji for "decorate?"', '飾', :kanji)
-card_4 = Card.new('What is the national sport of Japan?', 'sumo', :culture)
+filename = 'cards.txt'
 
-deck = Deck.new([card_1, card_2, card_3, card_4])
+cards = CardGenerator.new(filename).cards
+deck = Deck.new(cards)
 round = Round.new(deck)
 game = Game.new(round)
 
