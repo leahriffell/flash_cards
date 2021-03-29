@@ -16,8 +16,9 @@ class Game
       guess = gets.chomp
       @round.take_turn(guess)
       if @round.turns.size < @round.deck.cards.size
-        puts "incorrect\nThis is card number #{@round.turns.size + 1} out of #{@round.deck.cards.size}."
+        puts "#{@round.turns.last.feedback}\nThis is card number #{@round.turns.size + 1} out of #{@round.deck.cards.size}."
       else
+        puts "#{@round.turns.last.feedback}"
         display_final_results
       end
     end
